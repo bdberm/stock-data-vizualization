@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Search from './search';
-import {fetchSymbols} from '../actions/symbol_actions';
+import {fetchSymbols} from '../../actions/symbol_actions';
 
 const mapStateToProps = (state) => (
   {
