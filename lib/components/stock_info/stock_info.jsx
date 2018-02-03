@@ -20,8 +20,14 @@ class StockInfo extends React.Component {
       <section className="stock-info-container">
         <h1>{stock.symbol}: {stock.name}</h1>
         <ul className="basic-stock-info">
-          <li>Latest Price: {stock.latestPrice}</li>
-          <li>Latest Volume: {stock.latestVolume}</li>
+          <div className = "stock-info-item">
+            <h2>Latest Price</h2>
+            <h3>{stock.latestPrice}</h3>
+          </div>
+          <div className = "stock-info-item">
+            <h2>Latest Volume</h2>
+            <h3>{stock.latestVolume}</h3>
+          </div>
         </ul>
       </section>
     );

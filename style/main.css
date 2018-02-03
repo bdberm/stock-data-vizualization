@@ -3,6 +3,8 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
 }
 
 .search-container {
@@ -30,4 +32,21 @@
   text-overflow: clip;
   padding-left: 3px;
 
+}
+
+.stock-info-container {
+  width: 73%;
+}
+
+.stock-info-container > h1 {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid gray;
+}
+
+.basic-stock-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
