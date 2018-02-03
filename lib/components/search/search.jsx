@@ -7,6 +7,7 @@ class Search extends React.Component {
     super(props);
     this.state = {searchTerm: "", searchResults: []};
     this.handleInput = this.handleInput.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +28,8 @@ class Search extends React.Component {
     if (this.state.searchTerm !== "") {
       this.props.symbols.forEach((symbol) => {
         if (matchSymbol(this.state.searchTerm, symbol)) {
-          searchResults.push(<SearchResult key={symbol.symbol} symbol={symbol} />);
+          searchResults.push(<SearchResult key={symbol.symbol} symbol={symbol}
+            clearSearch={this.clearSearch}/>);
         }
       });
     }
