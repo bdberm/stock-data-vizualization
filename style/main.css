@@ -1,0 +1,30 @@
+#app {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.search-container {
+  width: 25%;
+}
+
+.search-input {
+  border: 1px solid gray;
+  padding-left: 3px;
+}
+
+.search-results {
+  max-height: 500px;
+  z-index: 1;
+  overflow: scroll;
+  width: 100%;
+  border: 1px solid gray;
+}
+
+.search-result {
+  height: 30px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+
+}

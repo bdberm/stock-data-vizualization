@@ -31,10 +31,11 @@ class Search extends React.Component {
     return (
       <section className="search-container">
         <form>
-          <input type="text" value={this.state.searchTerm} placeholder="Search Stocks"
+          <input className="search-input" type="text"
+            value={this.state.searchTerm} placeholder="Search Stocks"
             onChange={this.handleInput}/>
         </form>
-        <ul>
+        <ul className="search-results">
           {searchResults}
         </ul>
       </section>
