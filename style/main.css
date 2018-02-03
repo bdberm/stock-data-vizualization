@@ -26,5 +26,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
+  padding-left: 3px;
 
 }

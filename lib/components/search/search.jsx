@@ -17,6 +17,10 @@ class Search extends React.Component {
     this.setState({searchTerm: e.target.value});
   }
 
+  clearSearch(e) {
+    this.setState({searchTerm: "", searchResults: []});
+  }
+
   render() {
     const searchResults = [];
 
