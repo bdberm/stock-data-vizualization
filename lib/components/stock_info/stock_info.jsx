@@ -17,7 +17,13 @@ class StockInfo extends React.Component {
   render() {
     const {stock} = this.props;
     return (
-      <h1>{stock.symbol}: {stock.name}</h1>
+      <section className="stock-info-container">
+        <h1>{stock.symbol}: {stock.name}</h1>
+        <ul className="basic-stock-info">
+          <li>Latest Price: {stock.latestPrice}</li>
+          <li>Latest Volume: {stock.latestVolume}</li>
+        </ul>
+      </section>
     );
 
   }
