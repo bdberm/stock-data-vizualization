@@ -1,4 +1,5 @@
 import React from 'react';
+import {convertToPercent} from '../../util/conversions';
 
 class StockInfo extends React.Component {
 
@@ -16,17 +17,29 @@ class StockInfo extends React.Component {
 
   render() {
     const {stock} = this.props;
+
+    const percentChange = convertToPercent(stock.changePercent);
+
+    let changeStr;
+    if (percentChange < 0 ) {
+
+      changeStr = "(" + percentChange.toString() + ")";
+    } else {
+      changeStr = percentChange.toString();
+    }
+
     return (
       <section className="stock-info-container">
         <h1>{stock.symbol}: {stock.name}</h1>
         <ul className="basic-stock-info">
           <div className = "stock-info-item">
             <h2>Latest Price</h2>
-            <h3>{stock.latestPrice}</h3>
+            <h3>${parseFloat(stock.latestPrice).toLocaleString()}</h3>
+            <h3>{changeStr}</h3>
           </div>
           <div className = "stock-info-item">
             <h2>Latest Volume</h2>
-            <h3>{stock.latestVolume}</h3>
+            <h3>{stock.latestVolume.toLocaleString()}</h3>
           </div>
         </ul>
       </section>

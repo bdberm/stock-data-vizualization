@@ -4,7 +4,8 @@ import {fetchQuote} from '../../actions/symbol_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const stateStock = state.symbols[ownProps.match.params.symbol];
-  const stock = stateStock || {symbol: "", name: "", latestPrice: "", latestVolume: ""};
+  const stock = stateStock || {symbol: "", name: "", latestPrice: "",
+    latestVolume: "", changePercent: ""};
 
   return {
     stock
