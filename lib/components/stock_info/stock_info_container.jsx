@@ -11,3 +11,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 
 };
+
+const mapDispatchToProps = (dispatch) => (
+  {
+    fetchQuote: ((symbol) => dispatch(fetchQuote(symbol)))
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(StockInfo);
