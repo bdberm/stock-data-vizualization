@@ -1,5 +1,5 @@
 import React from 'react';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, LabelSeries, Crosshair} from 'react-vis';
+import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, LabelSeries, Hint} from 'react-vis';
 
 const HistoryChart = ({history, setVal, forgetVal, val}) => (
   <XYPlot width={800} height = {500}>
@@ -9,7 +9,7 @@ const HistoryChart = ({history, setVal, forgetVal, val}) => (
     <LineSeries onNearestX={setVal} onSeriesMouseOut={forgetVal} data={
         history.map((day, index) => ({x: index, y: day.close}))
       } animation='noWobble' />
-    {val ? <Crosshair value={val} />
+    {val ? <Hint value={val} />
             : null}
   </XYPlot>
 );
