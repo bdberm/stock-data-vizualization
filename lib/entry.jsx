@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import {fetchQuote} from './actions/symbol_actions';
+import {fetchHistory} from './actions/symbol_actions';
 
 
 document.addEventListener("DOMContentLoaded",() => {
-  window.fetchQuote = fetchQuote;
+  window.fetchHistory = fetchHistory;
   const store = configureStore();
   window.store = store;
 

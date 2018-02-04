@@ -1,6 +1,6 @@
 import React from 'react';
 import {convertToPercent} from '../../util/conversions';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries} from 'react-vis';
+import HistoryChart from './history_chart';
 
 class StockInfo extends React.Component {
 
@@ -43,12 +43,7 @@ class StockInfo extends React.Component {
             <h3>{stock.latestVolume.toLocaleString()}</h3>
           </div>
         </ul>
-        <XYPlot width={500} height = {500}>
-          <XAxis />
-          <YAxis />
-          <HorizontalGridLines />
-          <LineSeries data={[{x:1, y:1}, {x:2, y:3}]} />
-        </XYPlot>
+        <HistoryChart />
       </section>
     );
 
