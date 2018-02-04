@@ -1,6 +1,7 @@
 import React from 'react';
 import {convertToPercent} from '../../util/conversions';
 import HistoryChart from './history_chart';
+import {fetchHistory} from '../../actions/symbol_actions';
 
 class StockInfo extends React.Component {
 
@@ -17,9 +18,11 @@ class StockInfo extends React.Component {
   }
 
   render() {
-    const {stock} = this.props;
+    const {stock, fetchHistory} = this.props;
 
     const percentChange = convertToPercent(stock.changePercent);
+
+    const historyChart = stock.history ? <HistoryChart history={stock.history}  /> : null;
 
     let changeStr;
     if (percentChange < 0 ) {
@@ -43,7 +46,13 @@ class StockInfo extends React.Component {
             <h3>{stock.latestVolume.toLocaleString()}</h3>
           </div>
         </ul>
-        <HistoryChart />
+
+        <div className="get-history-container">
+          <h2>Price History</h2>
+          <div className="history-buttons"></div>
+          <button className="history-button" onClick={() => fetchHistory(stock.symbol)}>3 Weeks</button>
+        </div>
+        {historyChart}
       </section>
     );
 

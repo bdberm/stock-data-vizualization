@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import StockInfo from './stock_info';
-import {fetchQuote} from '../../actions/symbol_actions';
+import {fetchQuote, fetchHistory} from '../../actions/symbol_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const stateStock = state.symbols[ownProps.match.params.symbol];
@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 
   if (!stock.latestPrice) {
     [stock.latestPrice, stock.latestVolume, stock.changePercent] =
-    ["","",""]; 
+    ["","",""];
   }
 
   return {
@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => (
   {
-    fetchQuote: ((symbol) => dispatch(fetchQuote(symbol)))
+    fetchQuote: ((symbol) => dispatch(fetchQuote(symbol))),
+    fetchHistory: ((symbol, timeStr="") => dispatch(fetchHistory(symbol, timeStr)))  
   }
 );
 
