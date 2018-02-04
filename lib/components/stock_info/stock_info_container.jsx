@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => (
   {
     fetchQuote: ((symbol) => dispatch(fetchQuote(symbol))),
-    fetchHistory: ((symbol, timeStr="") => dispatch(fetchHistory(symbol, timeStr)))  
+    fetchHistory: ((symbol, timeStr="1m") => dispatch(fetchHistory(symbol, timeStr)))  
   }
 );
 

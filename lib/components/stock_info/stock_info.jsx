@@ -48,9 +48,8 @@ class StockInfo extends React.Component {
         </ul>
 
         <div className="get-history-container">
-          <h2>Price History</h2>
+          <h2 className="history-title">Price History</h2>
           <div className="history-buttons">
-            <button className="history-button" onClick={() => fetchHistory(stock.symbol)}>3w</button>
             <button className="history-button" onClick={() => fetchHistory(stock.symbol, "1m")}>1m</button>
             <button className="history-button" onClick={() => fetchHistory(stock.symbol, "3m")}>3m</button>
             <button className="history-button" onClick={() => fetchHistory(stock.symbol, "6m")}>6m</button>
