@@ -1,12 +1,12 @@
 import React from 'react';
 import {convertToPercent} from '../../util/conversions';
 import HistoryChart from './history_chart';
-import {fetchHistory} from '../../actions/symbol_actions';
 
 class StockInfo extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuote(this.props.match.params.symbol);
+    this.props.fetchHistory(this.props.match.params.symbol);
   }
 
   componentWillReceiveProps(newProps) {
@@ -49,8 +49,15 @@ class StockInfo extends React.Component {
 
         <div className="get-history-container">
           <h2>Price History</h2>
-          <div className="history-buttons"></div>
-          <button className="history-button" onClick={() => fetchHistory(stock.symbol)}>3 Weeks</button>
+          <div className="history-buttons">
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol)}>3w</button>
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol, "1m")}>1m</button>
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol, "3m")}>3m</button>
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol, "6m")}>6m</button>
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol, "1y")}>1y</button>
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol, "2y")}>2y</button>
+            <button className="history-button" onClick={() => fetchHistory(stock.symbol, "5y")}>5y</button>
+          </div>
         </div>
         {historyChart}
       </section>

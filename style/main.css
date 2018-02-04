@@ -50,3 +50,8 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.history-buttons {
+  display: flex;
+  justify-content: space-between;
+}

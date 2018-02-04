@@ -3,7 +3,7 @@ import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, LabelSeries} from
 
 const HistoryChart = ({history}) => (
   <XYPlot width={800} height = {500}>
-    <XAxis hideTicks />
+    <XAxis tickFormat={(d) => history[d].label} tickLabelAngle={-45} />
     <YAxis />
     <HorizontalGridLines />
     <LineSeries data={
