@@ -7,6 +7,11 @@ const mapStateToProps = (state, ownProps) => {
   const stock = stateStock || {symbol: "", name: "", latestPrice: "",
     latestVolume: "", changePercent: ""};
 
+  if (!stock.latestPrice) {
+    [stock.latestPrice, stock.latestVolume, stock.changePercent] =
+    ["","",""]; 
+  }
+
   return {
     stock
   };

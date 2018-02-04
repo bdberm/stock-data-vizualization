@@ -35,7 +35,7 @@ class StockInfo extends React.Component {
           <div className = "stock-info-item">
             <h2>Latest Price</h2>
             <h3>${parseFloat(stock.latestPrice).toLocaleString()}</h3>
-            <h3>{changeStr}</h3>
+            <h3>{changeStr}%</h3>
           </div>
           <div className = "stock-info-item">
             <h2>Latest Volume</h2>
