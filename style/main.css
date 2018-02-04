@@ -71,3 +71,7 @@
   margin: 5px 0;
   border-bottom: 1px solid gray;
 }
+
+.date-price {
+  background: red;
+}

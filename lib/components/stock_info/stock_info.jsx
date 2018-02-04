@@ -3,6 +3,12 @@ import {convertToPercent} from '../../util/conversions';
 import HistoryChart from './history_chart';
 
 class StockInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {displayVal: null};
+    this.setDisplayVal = this.setDisplayVal.bind(this);
+    this.forgetDisplayVal = this.forgetDisplayVal.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchQuote(this.props.match.params.symbol);
@@ -17,12 +23,22 @@ class StockInfo extends React.Component {
     }
   }
 
+  setDisplayVal(value) {
+    this.setState({displayVal: value});
+  }
+
+  forgetDisplayVal() {
+    this.setState({displayVal: null});
+  }
+
   render() {
     const {stock, fetchHistory} = this.props;
+    const {val} = this.state;
 
     const percentChange = convertToPercent(stock.changePercent);
 
-    const historyChart = stock.history ? <HistoryChart history={stock.history}  /> : null;
+    const historyChart = stock.history ? <HistoryChart history={stock.history}
+    setVal={this.setDisplayVal} forgetVal={this.forgetDisplayVal} val={val}/> : null;
 
     let changeStr;
     if (percentChange < 0 ) {
